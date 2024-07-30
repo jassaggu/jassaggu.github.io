@@ -31,14 +31,29 @@ body {
     display: flex;
     align-items: flex-start; /* Align items at the top */
     justify-content: center; /* Center items horizontally */
-    gap: 20px; /* Optional: adds space between the boxes */
 }
 
 .left_box {
+    display: flex; /* Add flex to left_box for columns */
     color: rgb(200, 152, 249);
     font-size: 30px;
     margin-top: 50px;
     margin-left: 30px;
+}
+
+.left_column, .right_column {
+    flex: 1;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.right_column {
+    flex: 1.5;
+    font-size: 18px;
+    color: aliceblue;
+    max-width: 370px;
+    margin-right: 390px;
+    margin-top: 35px;
 }
 
 .right_box {
@@ -53,8 +68,25 @@ body {
 
 .demo_gif {
     height: 30%;
-    width: 30%;
+    width: 70%;
     border-radius: 20px; /* Apply border radius to the image */
     margin-top: 20px;
     margin-bottom: 10px;
+}
+
+/* Responsive design: stack columns on smaller screens */
+@media (max-width: 600px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .left_box {
+        flex-direction: column;
+        margin-left: 0;
+    }
+
+    .left_column, .right_column {
+        flex-basis: 100%;
+    }
 }
